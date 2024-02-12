@@ -1,0 +1,35 @@
+.text
+loop1:
+ld n
+sub one
+brz end
+st n
+ld N
+st pair
+shr
+shl
+sub N
+brz pairEnd
+br impairEnd
+pairEnd:
+ld N
+shr
+st N
+br loop1
+impairEnd:
+ld N
+mul three
+add one
+st N
+br loop1
+end:
+ld N
+st Un
+stop
+.data
+pair: 0
+one: 1
+three: 3
+n:12
+N: 15
+Un: 0
