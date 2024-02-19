@@ -17,5 +17,14 @@ anagramme:
 
 
 
+movl $0x00, %eax
+movl $string1, %edx
+
+
+iteration:
+movl (%edx), %eax
+addl $0x01, %edx
+jmp iteration
+
 ret
 push %eax

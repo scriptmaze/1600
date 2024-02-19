@@ -15,7 +15,7 @@ mov %esp,%ebp
 push %ebx
 
 mask:
-xor %eax, %eax          
+xor %eax, %eax          #eax, ebx et ecx = 00000
 xor %ecx, %ecx
 xor %ebx, %ebx
 
@@ -26,18 +26,18 @@ n_c:
 lodsb                  
 
 d:              
-cmp $0x20, %al
-je n_c2
-cmp $0x41, %al
-jb n_c2
-cmp $0x5A, %al
+cmp $0x20, %al         # when %al = 0x20,
+je n_c2                # jump to n_c2|||
+cmp $0x41, %al         # when %al is below 0x41,
+jb n_c2                # jump to n_c2|||
+cmp $0x5A, %al         # when 
 jb a
 cmp $0x61, %al
 jb n_c2
 cmp $0x7A, %al 
 jbe a
 
-a:       
+a:              #add
 addl %eax, %ecx
 jmp n_c
 
